@@ -1,0 +1,87 @@
+﻿@using InnovaLift.Data.Entities
+@{
+    var texts = ViewBag.Texts as List<Text>;
+    var images = ViewBag.Images as List<Image>;
+}
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="~/css/main.css">
+        <title>InnovaLift</title>
+    </head>
+    <body>
+
+        <header class="header">
+            <div class="container">
+                <div class="header_inner">
+                    <a asp-controller="Home" asp-action="Index" class="header_logo"><img src="~/images/logo.png" alt=""></a>
+                    <nav class="nav">
+                        <div class="burger-menu" id="burger-menu">
+                            <div class="bar"></div>
+                            <div class="bar"></div>
+                            <div class="bar"></div>
+                        </div>
+                        <div class="nav_list">
+
+                            <a asp-controller="Home" asp-action="Equipment" class="nav_item">@texts.Where(b=>b.Id=="Equipment").FirstOrDefault().Name</a>
+                            <a asp-controller="Home" asp-action="Services" class="nav_item">@texts.Where(b=>b.Id=="Services").FirstOrDefault().Name</a>
+                            <a asp-controller="Home" asp-action="Contacts" class="nav_item">@texts.Where(b=>b.Id=="Contacts").FirstOrDefault().Name</a>
+                        </div>
+                   
+                    </nav>
+                </div>
+            </div>
+        </header>
+        @RenderBody()
+        <footer class="footer">
+            <div class="container">
+                <div class="footer_inner">
+                    <div class="footer_contacts">
+                        <div class="footer_title">
+                            Контакты
+                        </div>
+                        <div class="footer_text">@texts.Where(a=>a.Id=="Address").FirstOrDefault().Name: @texts.Where(a=>a.Id=="AddressFull").FirstOrDefault().Name</div>
+                        <div class="footer_text">@texts.Where(a=>a.Id=="Call").FirstOrDefault().Name: @texts.Where(a=>a.Id=="PhoneNumber").FirstOrDefault().Name</div>
+                        <div class="footer_text">@texts.Where(a=>a.Id=="Email").FirstOrDefault().Name: @texts.Where(a=>a.Id=="EmailAddress").FirstOrDefault().Name</div>
+                    </div>
+                    <div class="footer_social">
+                        <a href="#">
+                            @if (true)
+                            {
+                                string base64Image = Convert.ToBase64String(images.Where(a => a.Id == "FB").FirstOrDefault().Data);
+                                <img src="data:image/jpeg;base64,@base64Image" alt="">
+                            }
+                        </a>
+                        <a href="#">
+                            @if (true)
+                            {
+                                string base64Image = Convert.ToBase64String(images.Where(a => a.Id == "Twitter").FirstOrDefault().Data);
+                                <img src="data:image/jpeg;base64,@base64Image" alt="">
+                            }
+                        </a>
+                        <a href="#">
+                            @if (true)
+                            {
+                                string base64Image = Convert.ToBase64String(images.Where(a => a.Id == "YT").FirstOrDefault().Data);
+                                <img src="data:image/jpeg;base64,@base64Image" alt="">
+                            }
+                        </a>
+                    </div>
+                    <div class="footer_nav">
+                        <a asp-controller="Home" asp-action="Index" class="footer_nav_item">@texts.Where(a=>a.Id=="Main").FirstOrDefault().Name</a>
+                        <a asp-controller="Home" asp-action="Equipment" class="footer_nav_item">@texts.Where(a=>a.Id=="Equipment").FirstOrDefault().Name</a>
+                        <a asp-controller="Home" asp-action="Services" class="footer_nav_item">@texts.Where(a=>a.Id=="Services").FirstOrDefault().Name</a>
+                        <a asp-controller="Home" asp-action="Contacts" class="footer_nav_item">@texts.Where(a=>a.Id=="Contacts").FirstOrDefault().Name</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <script src="~/js/script.js"></script>
+    </body>
+    </html>
+
+

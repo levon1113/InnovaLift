@@ -1,0 +1,81 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>aspnet-InnovaLift-5D225008-939C-4651-BC3C-E19128B8DEFD</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Remove="wwwroot\css\main.css" />
+    <Content Remove="wwwroot\images\contact.png" />
+    <Content Remove="wwwroot\images\fb.png" />
+    <Content Remove="wwwroot\images\hours.png" />
+    <Content Remove="wwwroot\images\lift1-1.png" />
+    <Content Remove="wwwroot\images\lift1-2.png" />
+    <Content Remove="wwwroot\images\lift2-1.png" />
+    <Content Remove="wwwroot\images\lift2-2.png" />
+    <Content Remove="wwwroot\images\lift3-1.png" />
+    <Content Remove="wwwroot\images\lift3-2.png" />
+    <Content Remove="wwwroot\images\lift4-1.png" />
+    <Content Remove="wwwroot\images\lift4-2.png" />
+    <Content Remove="wwwroot\images\lift5-1.png" />
+    <Content Remove="wwwroot\images\lift5-2.png" />
+    <Content Remove="wwwroot\images\lift6-1.png" />
+    <Content Remove="wwwroot\images\lift6-2.png" />
+    <Content Remove="wwwroot\images\location.png" />
+    <Content Remove="wwwroot\images\logo.png" />
+    <Content Remove="wwwroot\images\main.jpg" />
+    <Content Remove="wwwroot\images\partner.png" />
+    <Content Remove="wwwroot\images\phone.png" />
+    <Content Remove="wwwroot\images\service.png" />
+    <Content Remove="wwwroot\images\twitter.png" />
+    <Content Remove="wwwroot\images\yt.png" />
+    <Content Remove="wwwroot\js\script.js" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\css\main.css" />
+    <None Include="wwwroot\images\contact.png" />
+    <None Include="wwwroot\images\fb.png" />
+    <None Include="wwwroot\images\hours.png" />
+    <None Include="wwwroot\images\lift1-1.png" />
+    <None Include="wwwroot\images\lift1-2.png" />
+    <None Include="wwwroot\images\lift2-1.png" />
+    <None Include="wwwroot\images\lift2-2.png" />
+    <None Include="wwwroot\images\lift3-1.png" />
+    <None Include="wwwroot\images\lift3-2.png" />
+    <None Include="wwwroot\images\lift4-1.png" />
+    <None Include="wwwroot\images\lift4-2.png" />
+    <None Include="wwwroot\images\lift5-1.png" />
+    <None Include="wwwroot\images\lift5-2.png" />
+    <None Include="wwwroot\images\lift6-1.png" />
+    <None Include="wwwroot\images\lift6-2.png" />
+    <None Include="wwwroot\images\location.png" />
+    <None Include="wwwroot\images\logo.png" />
+    <None Include="wwwroot\images\main.jpg" />
+    <None Include="wwwroot\images\partner.png" />
+    <None Include="wwwroot\images\phone.png" />
+    <None Include="wwwroot\images\service.png" />
+    <None Include="wwwroot\images\twitter.png" />
+    <None Include="wwwroot\images\yt.png" />
+    <None Include="wwwroot\js\script.js" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="CoreAdmin" Version="2.7.1" />
+    <PackageReference Include="MailKit" Version="4.3.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="6.0.8" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.8" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="6.0.8" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.8" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.8" />
+    <PackageReference Include="MimeKit" Version="4.3.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Data\Migrations\" />
+  </ItemGroup>
+
+</Project>

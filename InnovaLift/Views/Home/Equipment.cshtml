@@ -1,0 +1,33 @@
+﻿@using InnovaLift.Data.Entities
+@model List<Text>
+@{
+    var images = ViewBag.Images as List<Image>;
+    var texts = ViewBag.Texts as List<Text>;
+}
+<section class="equip">
+    <div class="container">
+        <div class="title">
+            @texts.Where(a=>a.Id=="Equipment").FirstOrDefault().Name
+
+        </div>
+        <div class="equip_inner">
+            
+            @foreach (Equipment item in ViewBag.Equipments)
+            {
+                <div class="equip_item">
+                    <div class="equip_images">
+                        @if (item.Image1 != null)
+                        {
+                            string base64Image1 = Convert.ToBase64String(item.Image1);
+                            string base64Image2 = Convert.ToBase64String(item.Image2);
+                            <img src="data:image/jpeg;base64,@base64Image1" alt="" class="equip_img1">
+                            <img src="data:image/jpeg;base64,@base64Image2" alt="" class="equip_img2">
+                        }
+                      
+                    </div>
+                    <div class="equip_name">@item.Name</div>
+                </div>
+            }
+        </div>
+    </div>
+</section>

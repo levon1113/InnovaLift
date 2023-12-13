@@ -1,0 +1,73 @@
+﻿@using InnovaLift.Data.Entities
+@model InnovaLift.Models.EmailModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    var texts = ViewBag.Texts as List<Text>;
+    var images = ViewBag.Images as List<Image>;
+}
+
+<section class="contact">
+    <div class="container">
+        <div class="contact_inner">
+            <div class="contact_mail">
+                <div class="title">
+                    @texts.Where(a=>a.Id=="ContactUs").FirstOrDefault().Name
+
+                </div>
+                <form asp-action="SendEmail" asp-controller="Home"  method="post" class="contact_form">
+                    <input asp-for="Name" placeholder="@texts.Where(a=>a.Id=="EnterName").FirstOrDefault().Name" type="text" name="name" id="" class="contact_item">
+                    <input asp-for="Email" placeholder="@texts.Where(a=>a.Id=="EnterEmail").FirstOrDefault().Name" type="email" name="email" id="" class="contact_item">
+                    <textarea asp-for="Message" style="height: 120px; resize: none; padding-top: 20px;" placeholder="@texts.Where(a=>a.Id=="EnterMessage").FirstOrDefault().Name" type="text" name="message" id="" class="contact_item"></textarea>
+                    <input type="submit" value="@texts.Where(a=>a.Id=="Submit").FirstOrDefault().Name" class="contact_btn">
+                </form>
+            </div>
+            <div class="info">
+                <div class="info_item">
+                    <div class="info_name">
+                        @if (true)
+                        {
+                            string base64Image = Convert.ToBase64String(images.Where(a => a.Id == "Phone").FirstOrDefault().Data);
+                            <img src="data:image/jpeg;base64,@base64Image" alt="" class="info_img">
+                        }
+                        @texts.Where(a=>a.Id=="Call").FirstOrDefault().Name
+
+                    </div>
+                    <div class="info_text">
+                        @texts.Where(a=>a.Id=="PhoneNumber").FirstOrDefault().Name
+
+                    </div>
+                </div>
+                <div class="info_item">
+                    <div class="info_name">
+                        @if (true)
+                        {
+                            string base64Image = Convert.ToBase64String(images.Where(a => a.Id == "Location").FirstOrDefault().Data);
+                            <img src="data:image/jpeg;base64,@base64Image" alt="" class="info_img">
+                        }
+                        @texts.Where(a=>a.Id=="Location").FirstOrDefault().Name
+
+                    </div>
+                    <div class="info_text">
+                        @texts.Where(a=>a.Id=="LocationNumber").FirstOrDefault().Name
+
+                    </div>
+                </div>
+                <div class="info_item">
+                    <div class="info_name">
+                        @if (true)
+                        {
+                            string base64Image = Convert.ToBase64String(images.Where(a => a.Id == "Hours").FirstOrDefault().Data);
+                            <img src="data:image/jpeg;base64,@base64Image" alt="" class="info_img">
+                        }
+                                            @texts.Where(a=>a.Id=="Hours").FirstOrDefault().Name
+
+                    </div>
+                    <div class="info_text">
+                                            @texts.Where(a=>a.Id=="HoursNumber").FirstOrDefault().Name
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

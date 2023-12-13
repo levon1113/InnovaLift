@@ -1,0 +1,33 @@
+﻿@using InnovaLift.Data.Entities
+@model List<Text>
+@{
+    var images = ViewBag.Images as List<Image>;
+    var texts = ViewBag.Texts as List<Text>;
+
+}
+
+<section class="services">
+    <div class="container">
+        <div class="title">
+            @texts.Where(a=>a.Id=="Services").FirstOrDefault().Name
+
+        </div>
+        <div class="services_inner">
+            @foreach (Service item in ViewBag.Services)
+            {
+               
+                if (item.Image != null)
+                {
+                    string base64Image1 = Convert.ToBase64String(item.Image);
+
+                    <div class="services_item" style="background-image: url('data:image/jpeg;base64,@base64Image1');">
+
+                        <a href="@Url.Action("DownloadPdf", "Home", new { id = item.Id })" class="services_btn">@item.Name</a>
+                    </div>
+                }
+            }
+            
+            
+        </div>
+    </div>
+</section>
